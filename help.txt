@@ -1,0 +1,3 @@
+https://www.youtube.com/watch?v=QTHRWGn_sJw
+https://github.com/vaishnavme/Zen-lofi-beats-player
+https://www.geeksforgeeks.org/create-a-music-player-using-javascript/
