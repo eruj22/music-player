@@ -172,10 +172,15 @@ h1 {
 }
 
 .menu__songs {
+    cursor: pointer;
     display: flex;
     justify-items: center;
     align-items: center;
     border: 1px solid black;
+}
+
+.menu__songs:hover {
+    opacity: .8;
 }
 
 .menu__songs + .menu__songs {

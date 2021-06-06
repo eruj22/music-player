@@ -141,19 +141,19 @@ function seekUpdate() {
     if (!isNaN(audio.duration)) {
         seekPosition = audio.currentTime * (100 / audio.duration);
         songSlider.value = seekPosition;
-    
+
         // calculations
         let currentMinutes = Math.floor(audio.currentTime / 60);
         let currentSeconds = Math.floor(audio.currentTime - currentMinutes * 60);
         let totalMinutes = Math.floor(audio.duration / 60);
         let totalSeconds = Math.floor(audio.duration - totalMinutes * 60);
-    
+
         // add a 0 to single digits
         if (currentMinutes < 10) { currentMinutes = "0" + currentMinutes; }
         if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
         if (totalMinutes < 10) { totalMinutes = "0" + totalMinutes; }
         if (totalSeconds < 10) { totalSeconds = "0" + totalSeconds; }
-    
+
         // display time
         currentTime.innerText = currentMinutes + ":" + currentSeconds;
         totalDuration.innerText = totalMinutes + ":" + totalSeconds;
@@ -172,3 +172,22 @@ menuToggle.addEventListener('click', () => {
     }
 });
 
+playlist(songList);
+
+function playlist(songs) {
+    const modalMenu = document.getElementById("menu");
+    let displaySongs = songs.map(song => {
+        return `
+            <div class="menu__songs">
+                <img class="menu-cover" src="${song.cover}">
+                <div class="menu__info">
+                    <h3>${song.name}</h3>
+                    <p>${song.artist}</p>
+                    <p>Length: </p>
+                </div>
+            </div>
+        `;
+    });
+    displaySongs = displaySongs.join("");
+    modalMenu.innerHTML = displaySongs;
+}
